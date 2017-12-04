@@ -13,28 +13,25 @@ public class Problem6 {
         }
 
         String hourName = convertNumberToWord(hour);
+        String minuteName = convertNumberToWord(minute);
 
+        String output = hourName + " Hundred " + "and " + minuteName + " Hours";
 
-
-        String output = hourName + "" + minute;
         return output;
     }
 
     public static String convertNumberToWord(int n){
         //take a military time and convert it to a phrase
-        String[] upToNotIncludingTwenty = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-                "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+        String[] upToNotIncludingTwenty = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+                "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 
-        String[] tens = {"", "", "twenty", "thirty", "forty", "fifty"};
+        String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty"};
 
         if(n < 20){
             return upToNotIncludingTwenty[n];
         }
-        else if() {
-            return tens[n / ];
-        }
-        else {
-
+        else  {
+            return tens[5 / n];
         }
     }
 }
