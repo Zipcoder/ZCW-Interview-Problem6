@@ -31,10 +31,7 @@ public class Problem6 {
         else {
             return "Invalid Input";
         }
-
-        String output = nameOfNumber(group1) + " Hundred and " + nameOfNumber(group2) + " Hours";
-
-        return output;
+        return formatTimeString(group1, group2);
     }
 
     private static String nameOfNumber(Integer num) {
@@ -65,6 +62,15 @@ public class Problem6 {
         }
         else {
             return null;
+        }
+    }
+
+    private static String formatTimeString(Integer group1, Integer group2) {
+        if(group2 <= 9) {
+            return nameOfNumber(group1) + " Hundred " + nameOfNumber(group2) + " Hours";
+        }
+        else {
+            return nameOfNumber(group1) + " Hundred and " + nameOfNumber(group2) + " Hours";
         }
     }
 
