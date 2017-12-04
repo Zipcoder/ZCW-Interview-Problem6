@@ -5,15 +5,11 @@ import java.util.regex.Pattern;
 public class Problem6 {
 
     public String transformTime(String str){
-        if(checkString(str)) {
+        if(Pattern.matches("\\d{1,2}:[0-6]\\d[aA|pP][mM]",str)) {
             return makeString(createTime(str));
         }else {
             return "Invalid format";
         }
-    }
-
-    public boolean checkString(String str){
-        return Pattern.matches("\\d{1,2}:[0-6]\\d[aA|pP][mM]",str);
     }
 
     public Time militaryTime(Time time){
@@ -30,8 +26,7 @@ public class Problem6 {
 
     public Time createTime(String str){
         String amORpm = (str.substring(str.length()-2).toLowerCase());
-        String time = str.substring(0,str.length()-2);
-        String[] timeSplit = time.split(":");
+        String[] timeSplit = str.substring(0,str.length()-2).split(":");
 
         return militaryTime(new Time(Integer.parseInt(timeSplit[0]),Integer.parseInt(timeSplit[1]),amORpm));
     }
@@ -73,10 +68,8 @@ public class Problem6 {
         return teens[time-10];
     }
 
-
     public String secondDigit(int secondNum){
         String[] digits = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
         return digits[secondNum];
     }
-
 }

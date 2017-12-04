@@ -51,15 +51,6 @@ public class Problem6Test {
     }
 
     @Test
-    public void checkStringTestTrue(){
-        Assert.assertTrue(problem6.checkString("01:10am"));
-    }
-    @Test
-    public void checkStringTestFalse(){
-        Assert.assertFalse(problem6.checkString("0110am"));
-    }
-
-    @Test
     public void militaryTimeTest(){
         Time testTime2 = new Time(12,45,"pm");
         int expected = 12;
