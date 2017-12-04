@@ -32,7 +32,7 @@ public class Problem6 {
             String newHHString = createMilitaryTimeHH(HH, meridiem);
             String newMMString = createMilitaryTimeMM(MM);
 
-            return newHHString+newMMString;
+            return newHHString + newMMString;
 
 
         } else {
@@ -44,7 +44,6 @@ public class Problem6 {
     }
 
 
-
     public String createMilitaryTimeHH(String input, String meridiem) {
         ArrayList <String> pmStrings = new ArrayList <String>(Arrays.asList("", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty", "Twentyone", "Twentytwo", "TwentyThree", "Twentyfour"));
         StringBuilder stringBuilder = new StringBuilder();
@@ -52,8 +51,7 @@ public class Problem6 {
 
         if (meridiem.equalsIgnoreCase("am")) {
             if (Integer.valueOf(input) < 10) stringBuilder.append(amStrings.get(0) + " ");
-
-            stringBuilder.append(amStrings.get(Integer.valueOf(input)) + " ");
+                stringBuilder.append(amStrings.get(Integer.valueOf(input)) + " ");
         } else {
             stringBuilder.append(pmStrings.get(Integer.valueOf(input)) + " ");
         }
@@ -66,44 +64,65 @@ public class Problem6 {
     private String createMilitaryTimeMM(String mm) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(" and ");
-        if (Integer.valueOf(mm)< 10) stringBuilder.append("Zero ");
+        if (Integer.valueOf(mm) < 10) stringBuilder.append("Zero");
 
         stringBuilder.append(tenMinutes(mm)).append(secMinutes(mm));
-
-
-
-
-
-
 
 
         stringBuilder.append(" Hours");
         return stringBuilder.toString();
     }
 
-    public String tenMinutes(String mm){
-        ArrayList<String> minutes = new ArrayList <String>(Arrays.asList("","Twenty","Thirty","Fourty","Fifty"));
+    public String tenMinutes(String mm) {
+        ArrayList <String> minutes = new ArrayList <String>(Arrays.asList("", "Twenty", "Thirty", "Fourty", "Fifty"));
         StringBuilder stringBuilder = new StringBuilder();
 
-        if(mm.charAt(0) == '2'){
+        if (mm.charAt(0) == '2') {
             stringBuilder.append(minutes.get(1));
         }
-        if(mm.charAt(0) == '3'){
+        if (mm.charAt(0) == '3') {
             stringBuilder.append(minutes.get(2));
         }
-        if(mm.charAt(0) == '4'){
+        if (mm.charAt(0) == '4') {
             stringBuilder.append(minutes.get(3));
         }
-        if(mm.charAt(0) == '5'){
+        if (mm.charAt(0) == '5') {
             stringBuilder.append(minutes.get(4));
         }
         return stringBuilder.toString();
     }
-    public String secMinutes(String mm){
+
+    public String secMinutes(String mm) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        if(mm.charAt(1) == '2'){
+
+
+        if (mm.charAt(1) == '1') {
+            stringBuilder.append("Eleven");
+        }
+        if (mm.charAt(1) == '2') {
             stringBuilder.append(" " + amStrings.get(2));
+        }
+        if (mm.charAt(1) == '3') {
+            stringBuilder.append(" " + amStrings.get(3));
+        }
+        if (mm.charAt(1) == '4') {
+            stringBuilder.append(" " + amStrings.get(4));
+        }
+        if (mm.charAt(1) == '5') {
+            stringBuilder.append(" " + amStrings.get(5));
+        }
+        if (mm.charAt(1) == '6') {
+            stringBuilder.append(" " + amStrings.get(6));
+        }
+        if (mm.charAt(1) == '7') {
+            stringBuilder.append(" " + amStrings.get(7));
+        }
+        if (mm.charAt(1) == '8') {
+            stringBuilder.append(" " + amStrings.get(8));
+        }
+        if (mm.charAt(1) == '9') {
+            stringBuilder.append(" " + amStrings.get(9));
         }
         return stringBuilder.toString();
 
