@@ -7,7 +7,8 @@ import org.junit.Test;
 public class Problem6Test {
 
     Problem6 problem6 = new Problem6();
-    String input = "9:47am";
+    String input = "12:47am";
+    String inputb = "12:47pm";
     String input1 = "1:30am";
     String input2 = "1:30pm";
     String input3 = "2:22pm";
@@ -16,9 +17,22 @@ public class Problem6Test {
 
     @Before
 
-
     @Test
-    public void militaryTimeConverterTest(){
+    public void militaryTimeConverterTestSandbox() {
+
+        String expected = "Zero Hundred and Forty-Seven Hours";
+        String actual = problem6.militaryTimeConverter(input);
+
+        Assert.assertEquals(expected,actual);
+
+        String expectedb = "Twelve Hundred and Forty-Seven Hours";
+        String actualb = problem6.militaryTimeConverter(inputb);
+
+        Assert.assertEquals(expectedb,actualb);
+
+    }
+    @Test
+    public void militaryTimeConverterTestOfficial(){
 
         String expected = "Zero One Hundred and Thirty Hours";
         String actual = problem6.militaryTimeConverter(input1);
