@@ -16,7 +16,7 @@ public class Problem6 {
     public String breakInput(String input) {
 
         String regexPattern = "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9][AaPp][Mm]$";
-        
+
         Pattern checkRegex = Pattern.compile(regexPattern);
         Matcher regexMatcher = checkRegex.matcher(input);
 
@@ -64,11 +64,26 @@ public class Problem6 {
     }
 
     private String createMilitaryTimeMM(String mm) {
-        ArrayList<String> minutes = new ArrayList <String>(Arrays.asList("","Twenty","Thirty","Fourty","Fifty"));
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(" and ");
         if (Integer.valueOf(mm)< 10) stringBuilder.append("Zero ");
 
+        stringBuilder.append(tenMinutes(mm)).append(secMinutes(mm));
+
+
+
+
+
+
+
+
+        stringBuilder.append(" Hours");
+        return stringBuilder.toString();
+    }
+
+    public String tenMinutes(String mm){
+        ArrayList<String> minutes = new ArrayList <String>(Arrays.asList("","Twenty","Thirty","Fourty","Fifty"));
+        StringBuilder stringBuilder = new StringBuilder();
 
         if(mm.charAt(0) == '2'){
             stringBuilder.append(minutes.get(1));
@@ -82,14 +97,15 @@ public class Problem6 {
         if(mm.charAt(0) == '5'){
             stringBuilder.append(minutes.get(4));
         }
-
-
-
-
-
-
-
-        stringBuilder.append(" Hours");
         return stringBuilder.toString();
+    }
+    public String secMinutes(String mm){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if(mm.charAt(1) == '2'){
+            stringBuilder.append(" " + amStrings.get(2));
+        }
+        return stringBuilder.toString();
+
     }
 }
