@@ -44,7 +44,7 @@ public class Problem6Test {
         Assert.assertEquals(expectedOutput, actual);
 
         input="4:23";
-        expectedOutput="Zero Four Hundred and Twenty-Three Hours";
+        expectedOutput="Zero Four Hundred and Twenty Three Hours";
         actual=test.convertMilitaryNotationToPhraseology(input);
 
         Assert.assertEquals(expectedOutput, actual);
@@ -53,13 +53,19 @@ public class Problem6Test {
     @Test
     public void testConvertStandardToMilitaryPhrase(){
         String input="2:22pm";
-        String expectedOutput="Fourteen Hundred and Twenty-Two Hours";
+        String expectedOutput="Fourteen Hundred and Twenty Two Hours";
         String actual = test.convertStandardToMilitaryPhrase(input);
 
         Assert.assertEquals(expectedOutput, actual);
 
         input= "2:11am";
         expectedOutput="Zero Two Hundred and Eleven Hours";
+        actual = test.convertStandardToMilitaryPhrase(input);
+
+        Assert.assertEquals(expectedOutput, actual);
+
+        input="12:09am";
+        expectedOutput="Zero Hundred and Zero Nine Hours";
         actual = test.convertStandardToMilitaryPhrase(input);
 
         Assert.assertEquals(expectedOutput, actual);

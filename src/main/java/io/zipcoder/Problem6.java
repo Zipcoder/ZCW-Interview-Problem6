@@ -12,21 +12,22 @@ public class Problem6 {
         boolean isAM;
         isAM="AM".equalsIgnoreCase(input.substring(input.length()-2, input.length()));
 
-        if (isAM){
-            return (input.substring(0, input.length()-2));
-        } else{
-            input=input.substring(0, input.length()-2);
-        }
+        input=input.substring(0, input.length()-2);
 
         String[] time = input.split(":");
         Integer hours = Integer.valueOf(time[0]);
-        if (hours<12){
-            hours+=12;
-            time[0]=""+hours;
-            return (time[0]+":"+time[1]);
-        } else{
-            return("00:"+time[1]);
+
+        if (isAM){
+
+            if (hours==12){
+                return ("00:"+time[1]);
+            }
+
+            return (input);
         }
+        hours+=12;
+        time[0]=""+hours;
+        return (time[0]+":"+time[1]);
     }
 
     public String convertMilitaryNotationToPhraseology(String input){
