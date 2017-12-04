@@ -18,7 +18,7 @@ Problem6 problem6 = new Problem6();
     public void numToWordTest(){
 
         String expected = "Two Hundred and Twenty Two";
-        String actual = problem6.numToWord(222);
+        String actual = problem6.numeroToWordAfterAm(222);
         Assert.assertEquals(expected, actual);
     }
 }

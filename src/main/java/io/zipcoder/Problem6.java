@@ -18,11 +18,24 @@ public class Problem6 {
 
         String userInput = scanner.next();
 
+        if(getPmOrAm(userInput).equalsIgnoreCase("am")){
+            problem6.numeroToWordAfterAm(problem6.convertAnStringToInteger(userInput));
+        }
+
+        // System.out.println(problem6.numeroToWordAfterAm(130));
+
+        System.out.println(problem6.numeroToWordAfterAm(130));
 
 
+    }
 
-        // System.out.println(problem6.numToWord(130));
-
+    public int convertAnStringToInteger(String value){
+        try {
+            return Integer.parseInt(value);
+        }catch (NumberFormatException e){
+            System.out.println(e);
+        }
+        return 0;
     }
 
     public static String getPmOrAm(String userInput) {
@@ -37,27 +50,17 @@ public class Problem6 {
     }
 
 
-    public String numToWord(Integer i) {
+    public String numeroToWordAfterAm(Integer number) {
 
         final String[] units = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
         final String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
-        if (i < 20) return units[i];
-        if (i < 100) return tens[i / 10] + ((i % 10 > 0) ? " " + numToWord(i % 10) : "");
-        if (i < 1000) return units[i / 100] + " Hundred" + ((i % 100 > 0) ? " and " + numToWord(i % 100) : "");
-        if (i < 1000000) return numToWord(i / 1000) + " Thousand " + ((i % 1000 > 0) ? " " + numToWord(i % 1000) : "");
-        return numToWord(i / 1000000) + " Million " + ((i % 1000000 > 0) ? " " + numToWord(i % 1000000) : "");
+        if (number < 20) return units[number];
+        if (number < 100) return   tens[number / 10] + ((number % 10 > 0) ? " " + numeroToWordAfterAm(number % 10) : "");
+        if (number < 1000) return units[number / 100] + " Hundred" + ((number % 100 > 0) ? " and " + numeroToWordAfterAm(number % 100) : "");
+        if (number < 1000000) return numeroToWordAfterAm(number / 1000) + " Thousand " + ((number % 1000 > 0) ? " " + numeroToWordAfterAm(number % 1000) : "");
+        return numeroToWordAfterAm(number / 1000000) + " Million " + ((number % 1000000 > 0) ? " " + numeroToWordAfterAm(number % 1000000) : "");
     }
-
-    public void afterNoon(int number){
-
-
-    }
-
-
-
-
-
 
 
     public String militarConvertor(String timeDesitre) {
