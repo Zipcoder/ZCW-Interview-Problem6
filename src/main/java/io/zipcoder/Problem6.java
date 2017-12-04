@@ -69,10 +69,8 @@ public class Problem6 {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(" and ");
         if (Integer.valueOf(mm)< 10) stringBuilder.append("Zero ");
-
-        char[] chars = mm.toCharArray();
-
         
+
         if(mm.charAt(0) == '2'){
             stringBuilder.append(minutes.get(1));
         }
