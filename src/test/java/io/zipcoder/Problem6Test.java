@@ -40,6 +40,11 @@ public class Problem6Test {
 
         Assert.assertEquals(expected4,actual4);
 
+        String expected5 = "Ten Hundred and Zero Two Hours";
+        String actual5 = problem6.militaryTimeConverter(input5);
+
+        Assert.assertEquals(expected5,actual5);
+
     }
 
     @Test

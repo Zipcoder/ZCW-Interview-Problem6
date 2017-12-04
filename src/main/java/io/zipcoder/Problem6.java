@@ -36,7 +36,7 @@ public class Problem6 {
     public String militaryTimeMinuteConverter(String minutesRaw){
 
         if(minutesRaw.substring(0,1).equals("0")){
-            return mapDigitToString(minutesRaw.substring(1,2));
+            return "Zero " + mapDigitToString(minutesRaw.substring(1,2));
         }else
         if(minutesRaw.substring(0,1).equals("1")){
             return mapDigitToString(minutesRaw.substring(0,2));
@@ -86,7 +86,7 @@ public class Problem6 {
         hourMap.put("30", "Thirty");
         hourMap.put("40", "Forty");
         hourMap.put("50", "Fifty");
-        
+
         return hourMap.get(input);
     }
 
