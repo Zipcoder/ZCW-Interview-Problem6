@@ -14,8 +14,8 @@ public class Problem6 {
 
     */
 
-    public static Date timeConverter(String timeOrig) throws ParseException {
-//            SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
+    public static String timeConverter(String timeOrig) throws ParseException {
+           SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
         SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mma");
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mma");
         Date date = parseFormat.parse(timeOrig);
@@ -23,7 +23,7 @@ public class Problem6 {
         // Date date1 = formatter.format(date);
 
 
-        return date;
+        return displayFormat.format(date);
     }
 
     public static Integer splitTime(String time) {
