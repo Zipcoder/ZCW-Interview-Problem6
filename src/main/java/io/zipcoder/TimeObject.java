@@ -3,10 +3,10 @@ package io.zipcoder;
 public class TimeObject {
 
     Integer firstNumber;
-    Integer secondNumber;
+    String secondNumber;
     String amPM;
 
-    TimeObject(Integer first, Integer second, String amPM){
+    TimeObject(Integer first, String second, String amPM){
         this.firstNumber = first;
         this.secondNumber = second;
         this.amPM = amPM;
@@ -16,7 +16,7 @@ public class TimeObject {
         return firstNumber;
     }
 
-    public Integer getSecondNumber() {
+    public String getSecondNumber() {
         return secondNumber;
     }
 
