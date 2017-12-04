@@ -17,8 +17,9 @@ public class Problem6Test {
     }
     @Test
     public void convertGivenTimeToMilitaryTime() throws Exception{
+        String input = "1:30pm";
         String expected = "1330";
-        String actual = problem6.convertGivenTimeToMilitaryTime("1:30pm");
+        String actual = problem6.convertGivenTimeToMilitaryTime(input);
         Assert.assertEquals(expected,actual);
 
     }
