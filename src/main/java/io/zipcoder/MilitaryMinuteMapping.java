@@ -16,41 +16,53 @@ public enum MilitaryMinuteMapping {
 
     String timeRepresentation="";
     int minute;
+    private void minuteMapping(int passedMinute){
+        switch (passedMinute){
+            case 0:{
+                timeRepresentation+="";
+                break;
+            }
+            case 1:{
+                timeRepresentation+="-One";
+                break;
+            }
+            case 2:{
+                timeRepresentation+="-Two";
+                break;
+            }
+            case 3:{
+                timeRepresentation+="-Three";
+                break;
+            }
+            case 4:{
+                timeRepresentation+="-Four";
+                break;
+            }
+            case 5:{
+                timeRepresentation+="-Five";
+                break;
+            }
+            case 6:{
+                timeRepresentation+="-Six";
+                break;
+            }
+            case 7:{
+                timeRepresentation+="-Seven";
+                break;
+            }
+            case 8:{
+                timeRepresentation+="-Eight";
+                break;
+            }case 9:{
+                timeRepresentation+="-Nine";
+                break;
+            }
 
-    MilitaryMinuteMapping(int passedMinute){
-        minute=passedMinute;
+        }
 
-        switch(passedMinute){
-            case 0:{timeRepresentation+="Zero";
-                break;
-            }
-            case 1:{timeRepresentation+="Zero One";
-                break;
-            }
-            case 2:{timeRepresentation+="Zero Two";
-                break;
-            }
-            case 3:{timeRepresentation+="Zero Three";
-                break;
-            }
-            case 4:{timeRepresentation+="Zero Four";
-                break;
-            }
-            case 5:{timeRepresentation+="Zero Five";
-                break;
-            }
-            case 6:{timeRepresentation+="Zero Six";
-                break;
-            }
-            case 7:{timeRepresentation+="Zero Seven";
-                break;
-            }
-            case 8:{timeRepresentation+="Zero Eight";
-                break;
-            }
-            case 9:{timeRepresentation+="Zero Nine";
-                break;
-            }
+    }
+    private void tensMapping(int passedMinute){
+        switch(passedMinute) {
             case 10:{timeRepresentation+="Ten";
                 break;
             }
@@ -81,135 +93,43 @@ public enum MilitaryMinuteMapping {
             case 19:{timeRepresentation+="Nineteen";
                 break;
             }
-            case 20:{timeRepresentation+="Twenty";
-                break;
-            }
-            case 21:{timeRepresentation+="Twenty-One";
-                break;
-            }
-            case 22:{timeRepresentation+="Twenty-Two";
-                break;
-            }
-            case 23:{timeRepresentation+="Twenty-Three";
-                break;
-            }
-            case 24:{timeRepresentation+="Twenty-Four";
-                break;
-            }
-            case 25:{timeRepresentation+="Twenty-Five";
-                break;
-            }
-            case 26:{timeRepresentation+="Twenty-Six";
-                break;
-            }
-            case 27:{timeRepresentation+="Twenty-Seven";
-                break;
-            }
-            case 28:{timeRepresentation+="Twenty-Eight";
-                break;
-            }
-            case 29:{timeRepresentation+="Twenty-Nine";
-                break;
-            }
-            case 30:{timeRepresentation+="Thirty";
-                break;
-            }
-            case 31:{timeRepresentation+="Thirty-One";
-                break;
-            }
-            case 32:{timeRepresentation+="Thirty-Two";
-                break;
-            }
-            case 33:{timeRepresentation+="Thirty-Three";
-                break;
-            }
-            case 34:{timeRepresentation+="Thirty-Four";
-                break;
-            }
-            case 35:{timeRepresentation+="Thirty-Five";
-                break;
-            }
-            case 36:{timeRepresentation+="Thirty-Six";
-                break;
-            }
-            case 37:{timeRepresentation+="Thirty-Seven";
-                break;
-            }
-            case 38:{timeRepresentation+="Thirty-Eight";
-                break;
-            }
-            case 39:{timeRepresentation+="Thirty-Nine";
-                break;
-            }
-            case 40:{timeRepresentation+="Forty";
-                break;
-            }
-            case 41:{timeRepresentation+="Forty-One";
-                break;
-            }
-            case 42:{timeRepresentation+="Forty-Two";
-                break;
-            }
-            case 43:{timeRepresentation+="Forty-Three";
-                break;
-            }
-            case 44:{timeRepresentation+="Forty-Four";
-                break;
-            }
-            case 45:{timeRepresentation+="Forty-Five";
-                break;
-            }
-            case 46:{timeRepresentation+="Forty-Six";
-                break;
-            }
-            case 47:{timeRepresentation+="Forty-Seven";
-                break;
-            }
-            case 48:{timeRepresentation+="Forty-Eight";
-                break;
-            }
-            case 49:{timeRepresentation+="Forty-Nine";
-                break;
-            }
-            case 50:{timeRepresentation+="Fifty";
-                break;
-            }
-            case 51:{timeRepresentation+="Fifty-One";
-                break;
-            }
-            case 52:{timeRepresentation+="Fifty-Two";
-                break;
-            }
-            case 53:{timeRepresentation+="Fifty-Three";
-                break;
-            }
-            case 54:{timeRepresentation+="Fifty-Four";
-                break;
-            }
-            case 55:{timeRepresentation+="Fifty-Five";
-                break;
-            }
-            case 56:{timeRepresentation+="Fifty-Six";
-                break;
-            }
-            case 57:{timeRepresentation+="Fifty-Seven";
-                break;
-            }
-            case 58:{timeRepresentation+="Fifty-Eight";
-                break;
-            }
-            case 59:{timeRepresentation+="Fifty-Nine";
-                break;
-            }
-            default: {
-                timeRepresentation += "You shouldn't ever see this";
-                break;
-            }
         }
+    }
+    MilitaryMinuteMapping(int passedMinute){
+        minute=passedMinute;
 
+        switch (passedMinute/10){
+            case 0: {
+                timeRepresentation += "Zero";
+                minuteMapping(passedMinute%10);
+                break;
+            }
+            case 1:{
+                tensMapping(passedMinute);
+                break;
+            }
+            case 2:{
+                timeRepresentation+="Twenty";
+                minuteMapping(passedMinute%10);
+                break;
+            }
+            case 3:{
+                timeRepresentation+="Thirty";
+                minuteMapping(passedMinute%10);
+                break;
+            }
+            case 4:{
+                timeRepresentation+="Forty";
+                minuteMapping(passedMinute%10);
+                break;
+            }
+            case 5:{
+                timeRepresentation+="Fifty";
+                minuteMapping(passedMinute%10);
+                break;
+            }
+
+        }
     }
 
-    public String getTimeRepresentation(){
-        return timeRepresentation;
-    }
 }
