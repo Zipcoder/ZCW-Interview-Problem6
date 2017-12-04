@@ -16,8 +16,7 @@ public class Problem6 {
     public String breakInput(String input) {
 
         String regexPattern = "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9][AaPp][Mm]$";
-
-        ArrayList <String> time = new ArrayList <String>();
+        
         Pattern checkRegex = Pattern.compile(regexPattern);
         Matcher regexMatcher = checkRegex.matcher(input);
 
@@ -69,7 +68,7 @@ public class Problem6 {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(" and ");
         if (Integer.valueOf(mm)< 10) stringBuilder.append("Zero ");
-        
+
 
         if(mm.charAt(0) == '2'){
             stringBuilder.append(minutes.get(1));
