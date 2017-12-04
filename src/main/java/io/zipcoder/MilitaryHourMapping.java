@@ -121,9 +121,4 @@ public enum MilitaryHourMapping {
 
     }
 
-    public String getTimeRepresentation(){
-        return timeRepresentation;
-    }
-
-
 }

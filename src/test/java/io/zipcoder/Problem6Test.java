@@ -50,4 +50,19 @@ public class Problem6Test {
         Assert.assertEquals(expectedOutput, actual);
     }
 
+    @Test
+    public void testConvertStandardToMilitaryPhrase(){
+        String input="2:22pm";
+        String expectedOutput="Fourteen Hundred and Twenty-Two Hours";
+        String actual = test.convertStandardToMilitaryPhrase(input);
+
+        Assert.assertEquals(expectedOutput, actual);
+
+        input= "2:11am";
+        expectedOutput="Zero Two Hundred and Eleven Hours";
+        actual = test.convertStandardToMilitaryPhrase(input);
+
+        Assert.assertEquals(expectedOutput, actual);
+    }
+
 }

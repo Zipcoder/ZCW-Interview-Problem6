@@ -3,6 +3,11 @@ package io.zipcoder;
 
 public class Problem6 {
 
+    public String convertStandardToMilitaryPhrase(String input) {
+
+            return (convertMilitaryNotationToPhraseology(convertToMilitaryNotation(input)));
+    }
+
     public String convertToMilitaryNotation(String input){
         boolean isAM;
         isAM="AM".equalsIgnoreCase(input.substring(input.length()-2, input.length()));
