@@ -27,7 +27,7 @@ public class Problem6 {
     public String militaryTimeHourConverter(String hoursRaw){
 
         if (hoursRaw.length()==1){
-            return "Zero" + mapDigitToString(hoursRaw);
+            return "Zero " + mapDigitToString(hoursRaw);
         }
 
         if (hoursRaw.equals("12")){
