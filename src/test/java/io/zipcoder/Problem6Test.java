@@ -60,6 +60,14 @@ public class Problem6Test {
     }
 
     @Test
+    public void militaryTimeTest(){
+        Time testTime2 = new Time(12,45,"pm");
+        int expected = 12;
+        int actual = problem6.militaryTime(testTime2).hour;
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
     public void createTimeTest(){
         String str = "12:30pm";
         int expected = 30;

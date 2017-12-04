@@ -6,14 +6,7 @@ public class Problem6 {
 
     public String transformTime(String str){
         if(checkString(str)) {
-            Time newTime = createTime(str);
-            if ("pm".equalsIgnoreCase(newTime.amORpm)) {
-                newTime.hour += 12;
-                if (newTime.hour == 24) {
-                    newTime.hour = 0;
-                }
-            }
-            return makeString(newTime);
+            return makeString(createTime(str));
         }else {
             return "Invalid format";
         }
@@ -23,12 +16,24 @@ public class Problem6 {
         return Pattern.matches("\\d{1,2}:[0-6]\\d[aA|pP][mM]",str);
     }
 
+    public Time militaryTime(Time time){
+        if("am".equals(time.amORpm) && time.hour == 12){
+            time.hour = 0;
+        }else if ("pm".equals(time.amORpm) && (time.hour != 12)) {
+            time.hour += 12;
+            if (time.hour == 24) {
+                time.hour = 0;
+            }
+        }
+        return time;
+    }
+
     public Time createTime(String str){
         String amORpm = (str.substring(str.length()-2).toLowerCase());
         String time = str.substring(0,str.length()-2);
         String[] timeSplit = time.split(":");
 
-        return new Time(Integer.parseInt(timeSplit[0]),Integer.parseInt(timeSplit[1]),amORpm);
+        return militaryTime(new Time(Integer.parseInt(timeSplit[0]),Integer.parseInt(timeSplit[1]),amORpm));
     }
 
     public String makeString(Time time){
