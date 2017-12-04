@@ -49,20 +49,21 @@ public class Problem6 {
         }
 
         stringJoiner.add("Hundred");
-        stringJoiner.add("and");
 
-        if(minutes <= 20) {
-            if(minutes < 10) {
-                stringJoiner.add(numAsString[0]);
-            }
-            stringJoiner.add(numAsString[minutes]);
-        }
-        else {
-            int tens = minutes/10;
-            int ones = minutes - tens*10;
-            stringJoiner.add(numAsString[18 + tens]);
-            if(ones > 0) {
-                stringJoiner.add(numAsString[ones]);
+        if(minutes > 0) {
+            stringJoiner.add("and");
+            if (minutes <= 20) {
+                if (minutes < 10) {
+                    stringJoiner.add(numAsString[0]);
+                }
+                stringJoiner.add(numAsString[minutes]);
+            } else {
+                int tens = minutes / 10;
+                int ones = minutes - tens * 10;
+                stringJoiner.add(numAsString[18 + tens]);
+                if (ones > 0) {
+                    stringJoiner.add(numAsString[ones]);
+                }
             }
         }
 

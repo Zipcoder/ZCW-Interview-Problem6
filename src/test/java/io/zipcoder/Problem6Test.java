@@ -82,4 +82,14 @@ public class Problem6Test {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void convertTimeToMilitaryTimePhraseTwelveAMTest() {
+        String input = "12:00am";
+
+        String expected = "Zero Zero Hundred Hours";
+        String actual = problem6.convertTimeToMilitaryTimePhrase(input);
+
+        Assert.assertEquals(expected, actual);
+    }
 }
