@@ -14,12 +14,23 @@ public class Problem6 {
            Integer addTwelve = Integer.parseInt(splitHoursAndMin[0]) + 12;
            splitHoursAndMin[0] = Integer.toString(addTwelve);
         }
-        String hoursOutput = mapDigitToString(splitHoursAndMin[0]);
+
+        String hoursRaw = splitHoursAndMin[0];
         String minutesRaw = splitHoursAndMin[1].substring(0,2);
 
+        String hoursConverted = militaryTimeHourConverter(hoursRaw);
         String minutesConverted = militaryTimeMinuteConverter(minutesRaw);
 
-        return hoursOutput + " Hundred and " + minutesConverted + " Hours";
+        return hoursConverted + " Hundred and " + minutesConverted + " Hours";
+    }
+
+    public String militaryTimeHourConverter(String hoursRaw){
+
+        if (hoursRaw.length()==1){
+            return "Zero " + mapDigitToString(hoursRaw);
+        }
+
+        return mapDigitToString(hoursRaw);
     }
 
     public String militaryTimeMinuteConverter(String minutesRaw){
@@ -30,9 +41,14 @@ public class Problem6 {
         if(minutesRaw.substring(0,1).equals("1")){
             return mapDigitToString(minutesRaw.substring(0,2));
         }else {
-            String tensColumn = mapDigitToString(minutesRaw.substring(0,1) + "0");
-            String onesColumn = mapDigitToString(minutesRaw.substring(1,2));
-            return tensColumn + "-" + onesColumn;
+            if(minutesRaw.substring(1,2).equals("0")){
+                return mapDigitToString(minutesRaw.substring(0,2));
+            }else{
+                String tensColumn = mapDigitToString(minutesRaw.substring(0,1) + "0");
+                String onesColumn = mapDigitToString(minutesRaw.substring(1,2));
+                return tensColumn + "-" + onesColumn;
+            }
+
         }
 
     }
@@ -70,13 +86,12 @@ public class Problem6 {
         hourMap.put("30", "Thirty");
         hourMap.put("40", "Forty");
         hourMap.put("50", "Fifty");
-
-
+        
         return hourMap.get(input);
     }
 
     public boolean isAM(String input){
-        return(input.substring(4,4).equals("a")||input.substring(5,5).equals("a"));
+        return (input.substring(4,5).equals("a")||input.substring(5,6).equals("a"));
 
     }
 
