@@ -26,8 +26,7 @@ public class Problem6 {
     private Integer numericalMilitaryMinutes(String input) {
         String backEnd = input.split(":")[1];
         if (backEnd.substring(0,1).equalsIgnoreCase("0")) {
-            Integer aInt = Integer.parseInt(backEnd.substring(1,2));
-            return aInt;
+            return Integer.parseInt(backEnd.substring(1,2));
         }
         else {
             return Integer.parseInt(backEnd.substring(0,2));
