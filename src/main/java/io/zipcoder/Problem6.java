@@ -13,12 +13,12 @@ public class Problem6 {
     }
 
     public Time militaryTime(Time time){
-        if("am".equals(time.amORpm) && time.hour == 12){
-            time.hour = 0;
-        }else if ("pm".equals(time.amORpm) && (time.hour != 12)) {
-            time.hour += 12;
-            if (time.hour == 24) {
-                time.hour = 0;
+        if("am".equals(time.getAmORpm()) && time.getHour() == 12){
+            time.setHour(0);
+        }else if ("pm".equals(time.getAmORpm()) && (time.getHour() != 12)) {
+            time.setHour(time.getHour()+12);
+            if (time.getHour() == 24) {
+                time.setHour(0);
             }
         }
         return time;
@@ -32,7 +32,7 @@ public class Problem6 {
     }
 
     public String makeString(Time time){
-        return convertTime(time.hour)+" Hundred and "+convertTime(time.minute)+" Hours";
+        return convertTime(time.getHour())+" Hundred and "+convertTime(time.getMinute())+" Hours";
     }
 
     public String convertTime(int time){

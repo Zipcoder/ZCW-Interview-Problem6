@@ -54,7 +54,7 @@ public class Problem6Test {
     public void militaryTimeTest(){
         Time testTime2 = new Time(12,45,"pm");
         int expected = 12;
-        int actual = problem6.militaryTime(testTime2).hour;
+        int actual = problem6.militaryTime(testTime2).getHour();
         Assert.assertEquals(expected,actual);
     }
 
@@ -62,7 +62,7 @@ public class Problem6Test {
     public void createTimeTest(){
         String str = "12:30pm";
         int expected = 30;
-        int actual = problem6.createTime(str).minute;
+        int actual = problem6.createTime(str).getMinute();
         Assert.assertEquals(expected,actual);
     }
 
