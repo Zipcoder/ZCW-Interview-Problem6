@@ -5,89 +5,70 @@ import java.util.Scanner;
 
 public class Problem6 {
 
+// AM FEATURES WORKING
+    // PM FEATURES SOON
+
+    static MilitarConvention convention = new MilitarConvention ();
+
+    // WORKING STILL ON PM FEATURES
 
     public static void main(String[] args) {
-        String number = "";
 
-        Problem6 problem6 = new Problem6();
+        int var = 1330 / 100;
+        System.out.println (var);
 
-        Scanner scanner = new Scanner(System.in);
+        Problem6 problem6 = new Problem6 ();
 
-        System.out.println("enter a regular time");
+        System.out.println ("Enter standard time...");
 
+        String timeEntered = problem6.scanner ();
 
-        String userInput = scanner.next();
+        if(problem6.getPmOrAm (timeEntered).equalsIgnoreCase ("am")){
+            String amTimeResult = convention.amTime (problem6.cleanNumber (timeEntered));
+            System.out.println (amTimeResult + " Hours");
 
-        if(getPmOrAm(userInput).equalsIgnoreCase("am")){
-            problem6.numeroToWordAfterAm(problem6.convertAnStringToInteger(userInput));
+        }else if(problem6.getPmOrAm (timeEntered).equalsIgnoreCase ("pm")){
+            String pmTimeResult = convention.pmTime (problem6.cleanNumber (timeEntered));
+            System.out.println (pmTimeResult + " Hours");
         }
 
-        // System.out.println(problem6.numeroToWordAfterAm(130));
-
-        System.out.println(problem6.numeroToWordAfterAm(130));
-
-
     }
 
-    public int convertAnStringToInteger(String value){
-        try {
-            return Integer.parseInt(value);
-        }catch (NumberFormatException e){
-            System.out.println(e);
-        }
-        return 0;
+    public String getPmOrAm(String userInput) {
+
+        return userInput.substring (userInput.length () - 2, userInput.length ());
     }
 
-    public static String getPmOrAm(String userInput) {
+    public String getNumberWithOutamOrPm(String userInput) {
 
-        return userInput.substring(0, userInput.length() - 2);
-
-    }
-
-    public static String removeSemicolon(String userInput) {
-        return userInput.replace(":", "");
-
+        return userInput.substring (0, userInput.length () - 2);
     }
 
 
-    public String numeroToWordAfterAm(Integer number) {
+    public String removeSemicolon(String userInput) {
 
-        final String[] units = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-        final String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+        String trim = userInput.trim ();
 
-        if (number < 20) return units[number];
-        if (number < 100) return   tens[number / 10] + ((number % 10 > 0) ? " " + numeroToWordAfterAm(number % 10) : "");
-        if (number < 1000) return units[number / 100] + " Hundred" + ((number % 100 > 0) ? " and " + numeroToWordAfterAm(number % 100) : "");
-        if (number < 1000000) return numeroToWordAfterAm(number / 1000) + " Thousand " + ((number % 1000 > 0) ? " " + numeroToWordAfterAm(number % 1000) : "");
-        return numeroToWordAfterAm(number / 1000000) + " Million " + ((number % 1000000 > 0) ? " " + numeroToWordAfterAm(number % 1000000) : "");
+        return trim.replace (":", "");
     }
 
+    public int numberToInt(String str) {
 
-    public String militarConvertor(String timeDesitre) {
+        return Integer.parseInt (str);
+    }
 
-        String time = "";
-        switch (timeDesitre) {
+    public int cleanNumber(String str) {
 
-            case "1:30 pm":
-                return time += "Thirteen Hundred and Thirty Hours";
-
-            case "1:30 am":
-                return time += "Zero One Hundred and Thirty Hours";
-
-            case "2:22pm pm":
-                return time += "Fourteen Hundred and Twenty Two Hours";
-
-            case "2:11am pm":
-                return time += "Zero Two Hundred and Eleven Hours";
-
-            case "10:02am pm":
-                return time += "Ten Hundred Zero Two Hours";
-
-        }
-        return time;
+        return numberToInt (removeSemicolon (getNumberWithOutamOrPm (str)));
 
     }
 
+    public String scanner() {
+
+        Scanner scanner = new Scanner (System.in);
+
+        return scanner.next ();
+    }
 }
 
 
