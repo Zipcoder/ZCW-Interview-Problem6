@@ -13,58 +13,31 @@ public class Problem6 {
             return upToNineteen[time];
         }
 
-        else if (time <= 60) {
+        else if (time >= 20) {
             return aboveTwenty[time / 10] + ((time % 10 != 0) ? " " : "") + upToNineteen[time % 10];
         }
         return null;
     }
 
-    private Integer numericalMilitaryHours(String input) {
-        return Integer.parseInt(input.split(":")[0]);
-    }
-
-    private Integer numericalMilitaryMinutes(String input) {
-        String backEnd = input.split(":")[1];
-        if (backEnd.substring(0,1).equalsIgnoreCase("0")) {
-            return Integer.parseInt(backEnd.substring(1,2));
+    private Integer numericalMilitaryHours(Time input) {
+        Integer militaryHours = Integer.parseInt(input.getHours());
+        if (input.getAmOrPm().equalsIgnoreCase("pm")) {
+            militaryHours = militaryHours + 12;
+            return militaryHours;
         }
         else {
-            return Integer.parseInt(backEnd.substring(0,2));
+            return militaryHours;
         }
     }
 
-    private String amOrPm(String input) {
-        return input.split(":")[1].substring(2,4);
+    private Integer numericalMilitaryMinutes(Time input) {
+        return Integer.parseInt(input.getMinutes());
     }
 
-    public String numericalMilitaryTime(String input) {
+    public String wordFromOfMilitaryTime(Time input) {
         Integer hours = numericalMilitaryHours(input);
         Integer minutes = numericalMilitaryMinutes(input);
-        String nightOrDay = amOrPm(input);
-        Integer militaryHours;
-        if (nightOrDay.equalsIgnoreCase("pm")) {
-            militaryHours = hours + 12;
-        }
-        else {
-            militaryHours = hours;
-        }
 
-        String stringMinutes = "";
-        if (minutes<10) {
-            stringMinutes += "0"+minutes;
-        }
-        else {
-            stringMinutes += minutes;
-        }
-
-        String militaryNumericalTime = militaryHours + ":" + stringMinutes;
-        return militaryNumericalTime;
-    }
-
-    public String wordFromOfMilitaryTime(String input) {
-        String militaryTimeString = numericalMilitaryTime(input);
-        Integer hours = numericalMilitaryHours(militaryTimeString);
-        Integer minutes = numericalMilitaryMinutes(militaryTimeString);
         String militaryHoursWordForm;
         String militaryMinutesWordForm;
         if (hours<10){
