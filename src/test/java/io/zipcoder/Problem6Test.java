@@ -32,7 +32,7 @@ public class Problem6Test {
     @Test
     public void militaryTimeInWords(){
         String expected = "Eleven Hundred and Thirty Hours";
-        String actual = main.timeIntoWords("11:30pm");
+        String actual = main.timeIntoWords("9:30am");
         Assert.assertEquals(expected, actual);
     }
 }

@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputReader {
+
     public  String hourRegex(String input ) {
         String hours = null;
         Pattern pattern = Pattern.compile("\\d*");

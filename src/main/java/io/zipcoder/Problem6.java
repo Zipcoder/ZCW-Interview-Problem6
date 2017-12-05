@@ -8,7 +8,7 @@ public class Problem6 {
 
     public String hourTable(String hour){
         HashMap<String, String> hourMap = new HashMap<String, String>();
-        hourMap.put("0", "Zero Hundred");
+        hourMap.put("0", "Zero Zero");
         hourMap.put("1", "Zero One Hundred");
         hourMap.put("2", "Zero Two Hundred");
         hourMap.put("3","Zero Three Hundred");
@@ -58,9 +58,17 @@ public class Problem6 {
         return minuteVariable;
     }
 
-    public String timeIntoWords(String input){
-        String militaryTimeInWords = inputHour(input) + " and " + inputMinute(input) + " Hours";
-        return militaryTimeInWords;
+
+    public String timeIntoWords(String input)throws NumberFormatException{
+        if (inputTime.minuteRegex(input).equals("00") ){
+            String minutesZero = inputHour(input) + " Hours";
+            return minutesZero;
+        }
+        else{
+            String minutesNotZero = inputHour(input) + " and " + inputMinute(input) + " Hours";
+            return minutesNotZero;
+
+        }
     }
 
 }
