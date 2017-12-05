@@ -24,41 +24,41 @@ public class Problem6Test {
 
     @Test
     public void wordFromOfMilitaryTimeTest_130pm() {
-        Time aTime = new Time(input1);
+        TimeParser aTimeParser = new TimeParser(input1);
         String expected = "Thirteen Hundred and Thirty Hours";
-        String actual = problem6.wordFromOfMilitaryTime(aTime);
+        String actual = problem6.wordFromOfMilitaryTime(aTimeParser);
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void wordFromOfMilitaryTimeTest_130am() {
-        Time aTime = new Time(input2);
+        TimeParser aTimeParser = new TimeParser(input2);
         String expected = "Zero One Hundred and Thirty Hours";
-        String actual = problem6.wordFromOfMilitaryTime(aTime);
+        String actual = problem6.wordFromOfMilitaryTime(aTimeParser);
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void wordFromOfMilitaryTimeTest_222pm() {
-        Time aTime = new Time(input3);
+        TimeParser aTimeParser = new TimeParser(input3);
         String expected = "Fourteen Hundred and Twenty Two Hours";
-        String actual = problem6.wordFromOfMilitaryTime(aTime);
+        String actual = problem6.wordFromOfMilitaryTime(aTimeParser);
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void wordFromOfMilitaryTimeTest_211pm() {
-        Time aTime = new Time(input4);
+        TimeParser aTimeParser = new TimeParser(input4);
         String expected = "Zero Two Hundred and Eleven Hours";
-        String actual = problem6.wordFromOfMilitaryTime(aTime);
+        String actual = problem6.wordFromOfMilitaryTime(aTimeParser);
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void wordFromOfMilitaryTimeTest_1002am() {
-        Time aTime = new Time(input5);
+        TimeParser aTimeParser = new TimeParser(input5);
         String expected = "Ten Hundred and Zero Two Hours";
-        String actual = problem6.wordFromOfMilitaryTime(aTime);
+        String actual = problem6.wordFromOfMilitaryTime(aTimeParser);
         Assert.assertEquals(expected,actual);
     }
 }

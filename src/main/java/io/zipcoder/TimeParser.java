@@ -1,25 +1,25 @@
 package io.zipcoder;
 
-public class Time {
+public class TimeParser {
     private String hours;
     private String minutes;
     private String amOrPm;
 
-    public Time(String input) {
-        setHours(input);
-        setMinutes(input);
-        setAmOrPm(input);
+    public TimeParser(String input) {
+        parseHours(input);
+        parseMinutes(input);
+        parseAmOrPm(input);
     }
 
-    public void setHours(String input) {
+    private void parseHours(String input) {
         this.hours = RegexMethods.findPattern("\\d{2}|\\d(?=:)", input);
     }
 
-    public void setMinutes(String input) {
+    private void parseMinutes(String input) {
         this.minutes = RegexMethods.findPattern("[0-5]\\d(?!:)", input);
     }
 
-    public void setAmOrPm(String input) {
+    private void parseAmOrPm(String input) {
         this.amOrPm = RegexMethods.findPattern("[aA|pP][mM]", input);
     }
 

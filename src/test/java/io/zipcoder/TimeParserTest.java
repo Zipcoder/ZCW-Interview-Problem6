@@ -4,9 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class TimeTest {
+public class TimeParserTest {
     String input;
 
     @Before
@@ -17,21 +15,21 @@ public class TimeTest {
     @Test
     public void findPatternTest_AmPm() throws Exception {
         String expected = "am";
-        String actual = new Time(input).getAmOrPm();
+        String actual = new TimeParser(input).getAmOrPm();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void findPatternTest_Minutes() {
         String expected = "43";
-        String actual = new Time(input).getMinutes();
+        String actual = new TimeParser(input).getMinutes();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void findPatternTest_Hours() {
         String expected = "12";
-        String actual = new Time(input).getHours();
+        String actual = new TimeParser(input).getHours();
         Assert.assertEquals(expected,actual);
     }
 

@@ -19,7 +19,7 @@ public class Problem6 {
         return null;
     }
 
-    private Integer numericalMilitaryHours(Time input) {
+    private Integer numericalMilitaryHours(TimeParser input) {
         Integer militaryHours = Integer.parseInt(input.getHours());
         if (input.getAmOrPm().equalsIgnoreCase("pm")) {
             militaryHours = militaryHours + 12;
@@ -30,11 +30,11 @@ public class Problem6 {
         }
     }
 
-    private Integer numericalMilitaryMinutes(Time input) {
+    private Integer numericalMilitaryMinutes(TimeParser input) {
         return Integer.parseInt(input.getMinutes());
     }
 
-    public String wordFromOfMilitaryTime(Time input) {
+    public String wordFromOfMilitaryTime(TimeParser input) {
         Integer hours = numericalMilitaryHours(input);
         Integer minutes = numericalMilitaryMinutes(input);
 
