@@ -13,10 +13,15 @@ public class Problem6 {
             if(character.equalsIgnoreCase("a") && newTime.length >= 7){
                 returnTime = time.substring(0, 2) + time.substring(3 ,time.length()-2);
             }
-            if(character.equalsIgnoreCase("p")){
+            if(character.equalsIgnoreCase("p") && newTime.length < 7){
                 int hours = Integer.parseInt(time.substring(0,1));
                 hours = hours+12;
-                returnTime = hours + time.substring(2 ,time.toString().length()-2);
+                returnTime = hours + time.substring(2 ,time.length()-2);
+            }
+            if(character.equalsIgnoreCase("p") && newTime.length >= 7){
+                int hours = Integer.parseInt(time.substring(0,2));
+                hours = hours+12;
+                returnTime = hours + time.substring(3 ,time.length()-2);
             }
         }
         return returnTime;
@@ -35,22 +40,19 @@ public class Problem6 {
 
         String timeToReturn = "";
 
-        int firstNum = Integer.parseInt(time.substring(0,2));
+        int veryFirstNum = Integer.parseInt(time.substring(0, 1));
+        int firstNums = Integer.parseInt(time.substring(0,2));
         int secondNum = Integer.parseInt(time.substring(1, 2));
         int thirdNum = Integer.parseInt(time.substring(2,3));
         int fourthNum = Integer.parseInt(time.substring(time.length()-1));
 
-        if(firstNum < 10 && fourthNum == 0) timeToReturn += words[0] + " " + words[firstNum] + " " + hundreds + " and " + tens[thirdNum];
-        if(firstNum < 10 && fourthNum > 0) timeToReturn += words[0] + " " + words[firstNum] + " " + hundreds + " and " + words[thirdNum+10];
-        if(firstNum > 10 && fourthNum > 0) timeToReturn += words[firstNum] + " " + hundreds + " and " + tens[thirdNum] + " " + words[fourthNum];
-        if(firstNum > 10 && fourthNum == 0) timeToReturn += words[firstNum] + " " + hundreds + " and " + tens[thirdNum];
-        if(firstNum == 10) timeToReturn += words[firstNum] + " " + hundreds + " " + words[secondNum] + " " + words[fourthNum];
+        if(firstNums < 10 && fourthNum == 0) timeToReturn += words[0] + " " + words[firstNums] + " " + hundreds + " and " + tens[thirdNum];
+        if(firstNums < 10 && fourthNum > 0) timeToReturn += words[0] + " " + words[firstNums] + " " + hundreds + " and " + words[thirdNum+10];
+        if(firstNums > 10 && firstNums < 20 && fourthNum > 0) timeToReturn += words[firstNums] + " " + hundreds + " and " + tens[thirdNum] + " " + words[fourthNum];
+        if(firstNums > 10 && firstNums >= 20 && fourthNum > 0) timeToReturn += tens[veryFirstNum] + " " + words[secondNum] + " and " + tens[thirdNum] + " " + words[fourthNum];
+        if(firstNums > 10 && fourthNum == 0) timeToReturn += words[firstNums] + " " + hundreds + " and " + tens[thirdNum];
+        if(firstNums == 10) timeToReturn += words[firstNums] + " " + hundreds + " " + words[secondNum] + " " + words[fourthNum];
 
         return timeToReturn + " Hours";
     }
 }
-//        firstTime = "1:30pm";
-//        secondTime = "1:30am";
-//        thirdTime = "2:22pm";
-//        fourthTime = "2:11am";
-//        fifthTime = "10:02am";

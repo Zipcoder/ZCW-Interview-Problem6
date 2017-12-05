@@ -11,6 +11,7 @@ public class Problem6Test {
     private String thirdTime;
     private String fourthTime;
     private String fifthTime;
+    private String myTime;
     private Problem6 problem6;
 
     @Before
@@ -20,6 +21,7 @@ public class Problem6Test {
         thirdTime = "2:22pm";
         fourthTime = "2:11am";
         fifthTime = "10:02am";
+        myTime = "12:59pm";
         problem6 = new Problem6();
     }
 
@@ -111,5 +113,14 @@ public class Problem6Test {
         String actual = problem6.convertTimeToWord(problem6.convertTimeNumerically(fifthTime));
 
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void myTest(){
+        String expected = "Twenty Two and Forty Two Hours";
+
+        String actual = problem6.convertTimeToWord(problem6.convertTimeNumerically(myTime));
+
+        Assert.assertEquals(expected,actual);
     }
 }
