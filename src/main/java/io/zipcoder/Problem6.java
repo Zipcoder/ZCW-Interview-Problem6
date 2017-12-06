@@ -27,51 +27,32 @@ public class Problem6 {
     //Step 2: convert the 24 hour format into military time phrase in string format
     //after the first two digit, add "Hundred and" to the end
     //add Hours at the end of each string
-    public String[] splitHourMinute(String input){
+    public String convertToMilitaryTime(String input){
         String formattedInput = convertTo24Hours(input);
-        return formattedInput.split(":");
+        String[] time= formattedInput.split(":");
+        String hour = convertToWords(time[0]);
+        String minute=convertToWords(time[1]);
+        return hour + " Hundred and " + minute + " Hours";
+
+
     }
-    public String convertHour(String input){
-        String hour = splitHourMinute(input)[0];
-        int numHour = Integer.parseInt(hour);
+    public String convertToWords(String input){
+        int num = Integer.parseInt(input);
         String word="";
-        if(numHour<10){
-            word+=units[0]+" "+units[numHour];
+        if(num<10){
+            word+=units[0]+" "+units[num];
         }
-        if(numHour<20 && numHour>=10){
-            word+=units[numHour];
+        if(num<20 && num>=10){
+            word+=units[num];
         }
-        if(numHour>=20){
-            if(numHour%10==0){
-                word+=tens[numHour/10];
+        if(num>=20){
+            if(num%10==0){
+                word+=tens[num/10];
             }
             else {
-                word += tens[numHour / 10] + " " + units[numHour % 10];
+                word += tens[num / 10] + " " + units[num % 10];
             }
         }
         return word;
-    }
-    public String convertMinute(String input){
-        String minute = splitHourMinute(input)[1];
-        int numMinute= Integer.parseInt(minute);
-        String word="";
-        if(numMinute<10){
-            word+=units[0]+" "+units[numMinute];
-        }
-        if(numMinute<20 && numMinute>=10){
-            word+=units[numMinute];
-        }
-        if(numMinute>=20){
-            if(numMinute%10==0){
-                word+=tens[numMinute/10];
-            }
-            else {
-                word += tens[numMinute / 10] + " " + units[numMinute % 10];
-            }
-        }
-        return word;
-    }
-    public String convert(String input) {
-        return convertHour(input) + " Hundred and " + convertMinute(input) + " Hours";
     }
 }

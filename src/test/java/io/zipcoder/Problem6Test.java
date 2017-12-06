@@ -16,13 +16,13 @@ public class Problem6Test {
     @Test
     public void testConvert() {
         String expected = "Fourteen Hundred and Thirty Hours";
-        String actual = problem6.convert("2:30 pm");
+        String actual = problem6.convertToMilitaryTime("2:30 pm");
         Assert.assertEquals(expected, actual);
     }
     @Test
     public void testConvert2(){
         String expected="Fourteen Hundred and Zero Hours";
-        String actual = problem6.convert("2:00 pm");
+        String actual = problem6.convertToMilitaryTime("2:00 pm");
         Assert.assertEquals(expected,actual);
         System.out.println(actual);
     }
@@ -35,7 +35,7 @@ public class Problem6Test {
     @Test
     public void testConvert3(){
         String expected ="Zero Two Hundred and Eleven Hours";
-        String actual = problem6.convert("2:11 am");
+        String actual = problem6.convertToMilitaryTime("2:11 am");
         Assert.assertEquals(expected,actual);
     }
 }
