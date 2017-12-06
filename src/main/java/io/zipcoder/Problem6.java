@@ -7,10 +7,15 @@ import java.util.Date;
 public class Problem6 {
     //Step 1: convert given 12 hour numerical format into 24 hours format
     //use SimpleDateFormat to format input to 24 hours
-    public String convertTo24Hours(String input){
+
+    String[] units = {"Zero", "One", "Two", "Three", "Four",
+            "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen",
+            "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty"};
+    public String convertTo24Hours(String input) {
         SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
         SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
-        Date date= null;
+        Date date = null;
         try {
             date = parseFormat.parse(input);
         } catch (ParseException e) {
@@ -18,27 +23,55 @@ public class Problem6 {
         }
         return displayFormat.format(date);
     }
+
     //Step 2: convert the 24 hour format into military time phrase in string format
     //after the first two digit, add "Hundred and" to the end
     //add Hours at the end of each string
-    public String convert(String input){
-
-        String[] units= { "Zero", "One", "Two", "Three", "Four",
-                "Five", "Six", "Seven", "Eight", "Nine","Ten", "Eleven", "Twelve", "Thirteen", "Fourteen",
-                "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-        String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty",
-                "Sixty", "Seventy", "Eighty", "Ninety"};
+    public String[] splitHourMinute(String input){
         String formattedInput = convertTo24Hours(input);
-        String[] splitFormattedInput = formattedInput.split(":");
-        for(int i=0;i<splitFormattedInput.length;i++){
-            int num= Integer.parseInt(splitFormattedInput[i]);
-            if(num<20){
-                splitFormattedInput[i]=units[i];
+        return formattedInput.split(":");
+    }
+    public String convertHour(String input){
+        String hour = splitHourMinute(input)[0];
+        int numHour = Integer.parseInt(hour);
+        String word="";
+        if(numHour<10){
+            word+=units[0]+" "+units[numHour];
+        }
+        if(numHour<20 && numHour>=10){
+            word+=units[numHour];
+        }
+        if(numHour>=20){
+            if(numHour%10==0){
+                word+=tens[numHour/10];
             }
-            else{
-                splitFormattedInput[i]=tens[i];
+            else {
+                word += tens[numHour / 10] + " " + units[numHour % 10];
             }
         }
-        return splitFormattedInput[0]+" Hundred and "+splitFormattedInput[1]+" Hours";
+        return word;
+    }
+    public String convertMinute(String input){
+        String minute = splitHourMinute(input)[1];
+        int numMinute= Integer.parseInt(minute);
+        String word="";
+        if(numMinute<10){
+            word+=units[0]+" "+units[numMinute];
+        }
+        if(numMinute<20 && numMinute>=10){
+            word+=units[numMinute];
+        }
+        if(numMinute>=20){
+            if(numMinute%10==0){
+                word+=tens[numMinute/10];
+            }
+            else {
+                word += tens[numMinute / 10] + " " + units[numMinute % 10];
+            }
+        }
+        return word;
+    }
+    public String convert(String input) {
+        return convertHour(input) + " Hundred and " + convertMinute(input) + " Hours";
     }
 }
