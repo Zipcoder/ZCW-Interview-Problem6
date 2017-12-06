@@ -14,8 +14,8 @@ public class Problem6 {
 /*  First Breakdown:
 
  1:30 pm to Thirteen Hundred and Thirty Hours
- 1:30 am to One Hundred and Thirty Hours
- 2:22 pm Fourteen Hundred and Twenty Two Hours
+ 1:30 am to Zero One Hundred and Thirty Hours
+ 2:22 pm to Fourteen Hundred and Twenty Two Hours
 
  1  - one o'clock (1:00) when it is "am" OR thirteen o clock (13:00) when it is a "pm"
 
@@ -37,6 +37,7 @@ if "am" do nothing to it just make it into and int
 2:11 am to 2:11 - Zero Two Hundred and Eleven Hours
 
 convert from standard to military time                  1:30 pm to 13:30
+//"13:30" to "13"
 then convert military time in numbers to word           1 to Thirteen , 30 to Thirty
 split number in front of : into a new variable          String hour;
 the number after the split put into a new variable      String minutes;
@@ -46,17 +47,13 @@ then add "and"  after the words split                   String andWord = "and" o
 add "Hours" at the end of the output string             String wordHour = "Hours"
 
 
-                                                      output: Thirteen Hundred and Thirty Hours
-
-
+                                                output: Thirteen Hundred and Thirty Hours
 */
 
     public static void main(String[] args) throws Exception {
 
         System.out.println(convertToMilitaryTime("1:30 pm"));
-
-        System.out.println(convertToMilitaryTimeInWords(convertToMilitaryTime("1:30 pm")));
-
+        //System.out.println(convertToMilitaryTimeInWords(convertToMilitaryTime("1:30 pm")));
     }
 
     public static String convertToMilitaryTime(String standardTime) {
@@ -70,49 +67,54 @@ add "Hours" at the end of the output string             String wordHour = "Hours
         }
 
         DateFormat displayMilitaryTime = new SimpleDateFormat("HH:mm");
-
         String militaryOutputString = displayMilitaryTime.format(d);
-
         return militaryOutputString;
     }
 
-    public static int parseMilitaryHour(String militaryTime) {
-        //if passing 13:30 or 01:30
-        //use substring to get (0,1) if it is 0 return Zero, if not get substring(0,2) and convert to Thirteen
-//or split military time into hours and minutes
+    public static int parseMilitaryHour(String militaryOutputString) {
 
+        String hourString = militaryOutputString.substring(0, 2);
+        int hourInt = Integer.parseInt(hourString);
+        return hourInt;
+    }
 
+    public static int parseMilitaryMinutes(String militaryOutputString) {
+        String minutesString = militaryOutputString.substring(3);
+        int minutesInt = Integer.parseInt(minutesString);
+        return minutesInt;
+    }
 
-        String hour = "";
-//13 to Thirteen
+    public static String convertHourToWord(int hourInt) {
 
+        String hourWord = "";
 
+        for (MilitaryHour m : MilitaryHour.values())
+            if (hourInt == m.hourToMatch)
+                hourWord = m.toString();
 
-        return hour;
+        return hourWord;
     }
 
 
-    public static int parseMilitaryMinutes(String militaryTime) {
+    public static String convertMinuteToWord(int minutesInt) {
+        String minuteWord = "";
 
-        String minutes = "";
+        for (MilitaryMinute m : MilitaryMinute.values())
+            if (minutesInt == m.minutesToMatch)
+                minuteWord = m.toString();
 
-
-
-        return minutes;
+        return minuteWord;
     }
 
 
+    public static String convertToMilitaryTimeInWords(String hourWord, String minuteWord) {
+        String hundredWord = "Hundred";
+        String andWord = "and";
+        String hoursWord = "Hours";
+
+        return hourWord + " " + hundredWord + " " + andWord + " " +  minuteWord + " " + hoursWord;
 
 
-
-    public static String convertToMilitaryTimeInWords(int hour, int minutes) {
-//        String hundredWord = "Hundred";
-//        String andWord = "and";
-//        String hoursWord = "Hours";
-
-        return null;
-//        return hour + hundredWord + andWord + minutes + hoursWord;
-//        output: Thirteen Hundred and Thirty Hours
     }
+
 }
-
