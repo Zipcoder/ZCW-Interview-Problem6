@@ -27,9 +27,9 @@ public class Problem6Test {
 
     @Test
     public void determineTimeTest(){
-        String input = "1:30pm";
+        String input = "11:30am";
 
-        String expected = "Ten Hundred and Zero Two Hours";
+        String expected = "";
         String actual = Problem6.determineTime(input);
 
         Assert.assertEquals(expected, actual);

@@ -44,7 +44,7 @@ public class Problem6 {
         String periodOfDay = getPeriodOfDay(input);
 
         Integer hours = 0;
-        Integer minutes = 0;
+        Integer minutes;
 
         if(periodOfDay.equals("pm")){
             hours += 12;
