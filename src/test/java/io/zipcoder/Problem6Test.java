@@ -69,7 +69,7 @@ public class Problem6Test {
         String input = "10:02am";
 
         //When
-        String expected = "Ten Hundred Zero Two Hours";
+        String expected = "Ten Hundred and Zero Two Hours";
         String actual = tester.timeConverter(input);
 
         //Then
