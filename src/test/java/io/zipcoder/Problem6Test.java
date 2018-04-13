@@ -61,5 +61,17 @@ public class Problem6Test {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void camelCaseSentence(){
+        Problem6 problem6 = new Problem6("10:02am");
+
+        String actual = problem6.camelCaseSentence("ten hundred zero two hours ");
+        String expected = "Ten Hundred Zero Two Hours ";
+        Assert.assertEquals(expected, actual);
+
+
+
+    }
 }
 
