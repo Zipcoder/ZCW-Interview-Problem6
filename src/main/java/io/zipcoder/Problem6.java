@@ -2,10 +2,7 @@ package io.zipcoder;
 
 public class Problem6 {
 
-    // Count hours
-    // am = 0, pm = 12
-
-    public String parse(String input) {
+    public String buildString(String input) {
         Integer hours = 0;
         Integer minutes = 0;
         String ret = "";
@@ -30,18 +27,15 @@ public class Problem6 {
         return ret;
     }
 
-    public String hoursToWords(Integer hours) {
+    private String hoursToWords(Integer hours) {
         String ret = "";
+        ret += TimeEnum.parseToWord(hours);
         return ret;
     }
 
-    public String minutesToWords(Integer minutes) {
+    private String minutesToWords(Integer minutes) {
         String ret = "";
-        return ret;
-    }
-
-    public Integer testMethod(String string) {
-        Integer ret = Integer.parseInt(string.substring(0, 2));
+        ret += TimeEnum.parseToWord(minutes);
         return ret;
     }
 

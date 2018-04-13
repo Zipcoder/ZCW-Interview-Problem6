@@ -1,5 +1,8 @@
 package io.zipcoder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum TimeEnum {
     ZERO(0, "Zero"),
     ONE(1, "One"),
@@ -64,6 +67,13 @@ public enum TimeEnum {
 
     final int hourValue;
     final String hourWord;
+    static final Map lookup = new HashMap();
+
+    static {
+        for (TimeEnum t : TimeEnum.values()) {
+            lookup.put(t.getHourValue(), t.getHourWord());
+        }
+    }
 
     TimeEnum(int hourValue, String hourWord) {
         this.hourValue = hourValue;
@@ -73,5 +83,10 @@ public enum TimeEnum {
     public int getHourValue() {return this.hourValue;}
 
     public String getHourWord() {return this.hourWord;}
+
+    public static String parseToWord(int hourValue) {
+        return (String) lookup.get(hourValue);
+    }
+
 
 }
