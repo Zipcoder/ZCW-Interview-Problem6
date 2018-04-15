@@ -81,7 +81,7 @@ public class Problem6 {
     }
 
     // Splits input into array // example: {10, 45, am}
-    private String[] splitTime(String time){
+    protected String[] splitTime(String time){
         String[] splitTimes = time.split(":");
         String[] endSplitTime = {
                                  splitTimes[0],
@@ -92,7 +92,7 @@ public class Problem6 {
     }
 
     // Checks if the input contains (am) - morning time
-    private boolean inTheMorning(String[] testArray){
+    protected boolean inTheMorning(String[] testArray){
         return (testArray[2].equalsIgnoreCase("am"));
     }
 
@@ -108,7 +108,7 @@ public class Problem6 {
         return firstMinuteNumber;
     }
 
-    public String getHourInMilitaryAM(String hour){
+    protected String getHourInMilitaryAM(String hour){
         if(Integer.parseInt(hour) == 12){
             return hours.get("0");
         } else {
@@ -116,7 +116,7 @@ public class Problem6 {
         }
     }
 
-    public String getHourInMilitaryPM(String hour){
+    protected String getHourInMilitaryPM(String hour){
         Integer pmHour = Integer.parseInt(hour) + 12;
         if(Integer.parseInt(hour) == 12){
             return hours.get("12");
@@ -126,7 +126,7 @@ public class Problem6 {
     }
 
     // Converts standard minutes to military minutes
-    public String getMinutesInMilitary(String inputMinutes){
+    protected String getMinutesInMilitary(String inputMinutes){
 
         if (Integer.parseInt(inputMinutes.substring(0, 2)) < 10) {
             return hours.get(inputMinutes.substring(inputMinutes.length() - 1));
@@ -142,7 +142,7 @@ public class Problem6 {
 
     public static void main(String[] args) {
         Problem6 problem6 = new Problem6();
-        String testTime = "11:32am";
+        String testTime = "12:01am";
         System.out.println(problem6.convertToMilitaryTime(testTime));
         //String[] time = {"1", "45", "am"};
         //System.out.println(problem6.convertTime(time));
