@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Problem6 {
 
-    private Map<Integer, String> map;
     private String[] digitsAsMilitaryWords = {
             "Zero Zero", "Zero One", "Zero Two", "Zero Three", "Zero Four",
             "Zero Five", "Zero Six", "Zero Seven", "Zero Eight", "Zero Nine",
@@ -22,18 +21,10 @@ public class Problem6 {
     };
 
     public Problem6() {
-        this.map = new LinkedHashMap<Integer, String>();
-        this.addDigitsAsMilitaryWordsToMap();
     }
 
-    public Map<Integer, String> getMap() {
-        return map;
-    }
-
-    public void addDigitsAsMilitaryWordsToMap() {
-        for (int i = 0; i < 60; i++) {
-            map.put(i, digitsAsMilitaryWords[i]);
-        }
+    public String[] getDigitsAsMilitaryWords() {
+        return digitsAsMilitaryWords;
     }
 
     public String writeTimeAsMilitary(String timeString) {
@@ -50,9 +41,9 @@ public class Problem6 {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(map.get(hourDigits));
+        sb.append(digitsAsMilitaryWords[hourDigits]);
         sb.append(" Hundred and ");
-        sb.append(map.get(minutesDigits));
+        sb.append(digitsAsMilitaryWords[minutesDigits]);
         sb.append(" Hours");
 
         return sb.toString();

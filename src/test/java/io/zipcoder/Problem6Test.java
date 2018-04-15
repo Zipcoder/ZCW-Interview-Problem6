@@ -15,12 +15,12 @@ public class Problem6Test {
     }
 
     @Test
-    public void Problem6DefaultConstructorTest() {
+    public void getDigitsAsMilitaryWordsTest() {
         // Given
         int expectedInt = 39;
         String expectedString = "Thirty Nine";
         // When
-        String actualString = problem6.getMap().get(expectedInt);
+        String actualString = problem6.getDigitsAsMilitaryWords()[expectedInt];
         // Then
         Assert.assertEquals(expectedString, actualString);
     }
