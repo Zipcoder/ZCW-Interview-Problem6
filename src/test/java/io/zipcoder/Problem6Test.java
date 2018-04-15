@@ -15,6 +15,17 @@ public class Problem6Test {
     }
 
     @Test
+    public void Problem6DefaultConstructorTest() {
+        // Given
+        int expectedInt = 39;
+        String expectedString = "Thirty Nine";
+        // When
+        String actualString = problem6.getMap().get(expectedInt);
+        // Then
+        Assert.assertEquals(expectedString, actualString);
+    }
+
+    @Test
     public void isTimeAmOrPmTest() {
         // Given
         char expectedSecondToLastChar = 'p';
@@ -55,16 +66,14 @@ public class Problem6Test {
     }
 
     @Test
-    public void digitsToStringTest() {
+    public void digitsToStringFromDigitsEnumTest() {
         // Given
         int digits = 0;
         String expectedHourMilitary = "Zero Zero";
         // When
-        String actualHourMilitary = problem6.digitsToString(digits);
+        String actualHourMilitary = problem6.digitsToStringFromDigitsEnum(digits);
         // Then
         Assert.assertEquals(expectedHourMilitary, actualHourMilitary);
     }
-
-
 
 }
