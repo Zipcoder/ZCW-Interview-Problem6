@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.ParseException;
-
 public class Problem6Test {
 
     Problem6 newProblem6;
@@ -13,6 +11,8 @@ public class Problem6Test {
     String testDate = "10:00am";
     String testDate2 = "3:30pm";
     String testDate3 = "3:30am";
+    String militayTime = "15:30";
+    String[] militaryTimeArray = {"15", "30"};
 
     @Before
     public void setUp(){
@@ -58,9 +58,56 @@ public class Problem6Test {
         Assert.assertEquals(expected,actual);
     }
 
-    @Test (expected = ParseException.class)
-    public void timeConverterTest4(){
-        newProblem6.timeConverter("12pm");
+
+    @Test
+    public void splitTimeTest(){
+        //Given
+        Integer expected = militaryTimeArray.length;
+        //When
+        String[] splitTimeTest = newProblem6.splitTime(militayTime);
+        Integer actual = splitTimeTest.length;
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void splitTimeTest1(){
+        //Given
+        String expected = militaryTimeArray[0];
+        //When
+        String[] splitTimeTest = newProblem6.splitTime(militayTime);
+        String actual = splitTimeTest[0];
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void covertIndexOneToWordTest(){
+        //Given
+        String expected = "Fifteen";
+       //When
+        String actual = newProblem6.convertIndexOneToWord(militaryTimeArray[0]);
+       //Then
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void covertIndexTwoToWordTest(){
+        //Given
+        String expected = "Thirty";
+        //When
+        String actual = newProblem6.convertIndexOneToWord(militaryTimeArray[1]);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void formatWordsTest(){
+        //Given
+        String expected = "Fifteen Hundred and Thirty Hours";
+        //When
+        String actual = newProblem6.formatWords(militaryTimeArray[0], militaryTimeArray[1]);
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 
 }
