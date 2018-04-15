@@ -47,33 +47,11 @@ public class Problem6Test {
     @Test
     public void writeTimeAsMilitaryTest() {
         // Given
-        String expectedHourMilitary = "Zero One Hundred and Thirty Hours";
+        String expectedHourMilitary = "Thirteen Hundred and Thirty Hours";
         // When
         String actualHourMilitary = problem6.writeTimeAsMilitary(timeStringPm0);
         // Then
         Assert.assertEquals(expectedHourMilitary, actualHourMilitary);
-    }
-
-    @Test
-    public void writeHourAsMilitaryTest() {
-        // Given
-        String hourString = "01";
-        String expectedHourMilitary = "Zero One";
-        // When
-        String actualHourMilitary = problem6.writeHourAsMilitary(hourString);
-        // Then
-        Assert.assertEquals(expectedHourMilitary, actualHourMilitary);
-    }
-
-    @Test
-    public void writeMinutesAsMilitaryTest() {
-        // Given
-        String minutesString = "59";
-        String expectedMinutesMilitary = "Fifty Nine";
-        // When
-        String actualMinutesMilitary = problem6.writeMinutesAsMilitary(minutesString);
-        // Then
-        Assert.assertEquals(expectedMinutesMilitary, actualMinutesMilitary);
     }
 
     @Test
