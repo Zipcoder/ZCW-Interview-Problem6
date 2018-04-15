@@ -1,10 +1,5 @@
 package io.zipcoder;
-
-import javafx.beans.binding.IntegerBinding;
-
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Problem6 {
 
@@ -19,6 +14,7 @@ public class Problem6 {
         populateMultiplesOfTen();
     }
 
+    // Converts String input to Military Time result
     public String convertToMilitaryTime(String input) {
         this.input = splitTime(input);
 
@@ -33,53 +29,6 @@ public class Problem6 {
                     getMinutesInMilitary(this.input[1]) +
                     " Hours";
         }
-    }
-
-    private void populateHours(){
-        hours.put("0", "Zero Zero");
-        hours.put("1", "Zero One");
-        hours.put("2", "Zero Two");
-        hours.put("3", "Zero Three");
-        hours.put("4", "Zero Four");
-        hours.put("5", "Zero Five");
-        hours.put("6", "Zero Six");
-        hours.put("7", "Zero Seven");
-        hours.put("8", "Zero Eight");
-        hours.put("9", "Zero Nine");
-        hours.put("10", "Ten");
-        hours.put("11", "Eleven");
-        hours.put("12", "Twelve");
-        hours.put("13", "Thirteen");
-        hours.put("14", "Fourteen");
-        hours.put("15", "Fifteen");
-        hours.put("16", "Sixteen");
-        hours.put("17", "Seventeen");
-        hours.put("18", "Eighteen");
-        hours.put("19", "Nineteen");
-        hours.put("20", "Twenty");
-        hours.put("21", "Twenty One");
-        hours.put("22", "Twenty Two");
-        hours.put("23", "Twenty Three");
-    }
-
-    private void populateMinutes(){
-        minutes.put("1", "One");
-        minutes.put("2", "Two");
-        minutes.put("3", "Three");
-        minutes.put("4", "Four");
-        minutes.put("5", "Five");
-        minutes.put("6", "Six");
-        minutes.put("7", "Seven");
-        minutes.put("8", "Eight");
-        minutes.put("9", "Nine");
-    }
-
-    private void populateMultiplesOfTen(){
-        multiplesOfTen.put("10", "Ten");
-        multiplesOfTen.put("20", "Twenty");
-        multiplesOfTen.put("30", "Thirty");
-        multiplesOfTen.put("40", "Forty");
-        multiplesOfTen.put("50", "Fifty");
     }
 
     // Splits input into array // example: {10, 45, am}
@@ -140,5 +89,52 @@ public class Problem6 {
             return multiplesOfTen.get(minuteNumberStartsWith(this.input)) + " " +
                    minutes.get(inputMinutes.substring(inputMinutes.length() - 1));
         }
+    }
+
+    private void populateHours(){
+        hours.put("0", "Zero Zero");
+        hours.put("1", "Zero One");
+        hours.put("2", "Zero Two");
+        hours.put("3", "Zero Three");
+        hours.put("4", "Zero Four");
+        hours.put("5", "Zero Five");
+        hours.put("6", "Zero Six");
+        hours.put("7", "Zero Seven");
+        hours.put("8", "Zero Eight");
+        hours.put("9", "Zero Nine");
+        hours.put("10", "Ten");
+        hours.put("11", "Eleven");
+        hours.put("12", "Twelve");
+        hours.put("13", "Thirteen");
+        hours.put("14", "Fourteen");
+        hours.put("15", "Fifteen");
+        hours.put("16", "Sixteen");
+        hours.put("17", "Seventeen");
+        hours.put("18", "Eighteen");
+        hours.put("19", "Nineteen");
+        hours.put("20", "Twenty");
+        hours.put("21", "Twenty One");
+        hours.put("22", "Twenty Two");
+        hours.put("23", "Twenty Three");
+    }
+
+    private void populateMinutes(){
+        minutes.put("1", "One");
+        minutes.put("2", "Two");
+        minutes.put("3", "Three");
+        minutes.put("4", "Four");
+        minutes.put("5", "Five");
+        minutes.put("6", "Six");
+        minutes.put("7", "Seven");
+        minutes.put("8", "Eight");
+        minutes.put("9", "Nine");
+    }
+
+    private void populateMultiplesOfTen(){
+        multiplesOfTen.put("10", "Ten");
+        multiplesOfTen.put("20", "Twenty");
+        multiplesOfTen.put("30", "Thirty");
+        multiplesOfTen.put("40", "Forty");
+        multiplesOfTen.put("50", "Fifty");
     }
 }
