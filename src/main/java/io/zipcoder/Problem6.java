@@ -24,11 +24,13 @@ public class Problem6 {
 
         if(inTheMorning(this.input)){
             return getHourInMilitaryAM(this.input[0]) +
-                   " Hundred and " + getMinutesInMilitary(this.input[1]) +
+                   " Hundred and " +
+                    getMinutesInMilitary(this.input[1]) +
                    " Hours";
         } else {
             return getHourInMilitaryPM(this.input[0]) +
-                    " Hundred and " + getMinutesInMilitary(this.input[1]) +
+                    " Hundred and " +
+                    getMinutesInMilitary(this.input[1]) +
                     " Hours";
         }
     }
@@ -135,17 +137,8 @@ public class Problem6 {
         } else if (Integer.parseInt(inputMinutes.substring(0, 2)) % 10 == 0) {
             return multiplesOfTen.get(minuteNumberStartsWith(this.input));
         } else {
-            return multiplesOfTen.get(minuteNumberStartsWith(this.input))
-                   + " " + minutes.get(inputMinutes.substring(inputMinutes.length() - 1));
+            return multiplesOfTen.get(minuteNumberStartsWith(this.input)) + " " +
+                   minutes.get(inputMinutes.substring(inputMinutes.length() - 1));
         }
-    }
-
-    public static void main(String[] args) {
-        Problem6 problem6 = new Problem6();
-        String testTime = "12:01am";
-        System.out.println(problem6.convertToMilitaryTime(testTime));
-        //String[] time = {"1", "45", "am"};
-        //System.out.println(problem6.convertTime(time));
-
     }
 }
