@@ -11,7 +11,7 @@ public class Problem6Test {
     String testDate = "10:00am";
     String testDate2 = "3:30pm";
     String testDate3 = "3:30am";
-    String militayTime = "15:30";
+    String militaryTime = "15:30";
     String[] militaryTimeArray = {"15", "30"};
 
     @Before
@@ -64,7 +64,7 @@ public class Problem6Test {
         //Given
         Integer expected = militaryTimeArray.length;
         //When
-        String[] splitTimeTest = newProblem6.splitTime(militayTime);
+        String[] splitTimeTest = newProblem6.splitTime(militaryTime);
         Integer actual = splitTimeTest.length;
         //Then
         Assert.assertEquals(expected,actual);
@@ -74,7 +74,7 @@ public class Problem6Test {
         //Given
         String expected = militaryTimeArray[0];
         //When
-        String[] splitTimeTest = newProblem6.splitTime(militayTime);
+        String[] splitTimeTest = newProblem6.splitTime(militaryTime);
         String actual = splitTimeTest[0];
         //Then
         Assert.assertEquals(expected,actual);
@@ -85,7 +85,7 @@ public class Problem6Test {
         //Given
         String expected = "Fifteen";
        //When
-        String actual = newProblem6.convertIndexOneToWord(militaryTimeArray[0]);
+        String actual = newProblem6.convertIndexToWord(militaryTimeArray[0]);
        //Then
         Assert.assertEquals(expected,actual);
     }
@@ -95,7 +95,7 @@ public class Problem6Test {
         //Given
         String expected = "Thirty";
         //When
-        String actual = newProblem6.convertIndexOneToWord(militaryTimeArray[1]);
+        String actual = newProblem6.convertIndexToWord(militaryTimeArray[1]);
         //Then
         Assert.assertEquals(expected, actual);
     }
@@ -105,9 +105,17 @@ public class Problem6Test {
         //Given
         String expected = "Fifteen Hundred and Thirty Hours";
         //When
-        String actual = newProblem6.formatWords(militaryTimeArray[0], militaryTimeArray[1]);
+        String actual = newProblem6.formatWords("Fifteen", "Thirty");
         //Then
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void seeIfWholeThingWorksTest(){
+        String expected = "Fifteen Hundred and Thirty Hours";
+        String actual = newProblem6.seeIfWholeThingWorks(testDate2);
+        Assert.assertEquals(expected, actual);
+
     }
 
 }
