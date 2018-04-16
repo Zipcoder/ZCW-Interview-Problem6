@@ -1,7 +1,6 @@
 package io.zipcoder;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 
 public class MilitaryTime {
@@ -42,11 +41,12 @@ public class MilitaryTime {
         Integer hours = Integer.parseInt(splitTime[0]);
         Integer minutes = Integer.parseInt(splitTime[1]);
 
-        StringBuilder output = new StringBuilder();
-        output.append(convertHours(hours));
-        output.append(convertMinutes(minutes));
+        String output = new StringBuilder()
+                .append(convertHours(hours))
+                .append(convertMinutes(minutes))
+                .toString();
 
-        return output.toString();
+        return output;
     }
 
     public String convertHours(Integer hours) {
@@ -94,11 +94,12 @@ public class MilitaryTime {
 
     public String formatTime(String time) {
         String[] splitTime = time.split("");
-        splitTime[splitTime.length - 1] = splitTime[splitTime.length - 1].toUpperCase();
-        splitTime[splitTime.length - 2] = splitTime[splitTime.length - 2].toUpperCase();
-        splitTime[splitTime.length - 3] = splitTime[splitTime.length - 3] + " ";
+        for(int i = splitTime.length - 1; i > splitTime.length - 4; i--) {
+            if(i == splitTime.length - 3) {
+                splitTime[i] = splitTime[i] + " ";
+            }
+            splitTime[i] = splitTime[i].toUpperCase();
+        }
         return String.join("", splitTime);
     }
-
-
 }

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class MilitaryTimeTest {
 
-    MilitaryTime militaryTime;
+    private MilitaryTime militaryTime;
 
     @Before
     public void setup() {
