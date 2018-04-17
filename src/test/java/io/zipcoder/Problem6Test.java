@@ -161,6 +161,8 @@ public class Problem6Test {
 
         //Then
         Assert.assertEquals(expected, actual);
+
+
     }
 
     @Test
@@ -176,8 +178,38 @@ public class Problem6Test {
 
         //Then
         Assert.assertEquals(expected, actual);
+
     }
 
+    @Test
+    public void testgetMilitaryHour1()
+    {
+        //Given
+        Problem6 problem6 = new Problem6();
+        Integer hour = 16;
+        String expected  = "Sixteen Hundred ";
+
+        //When
+        String actual = problem6.getMilitaryHour(hour);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testgetMilitaryHour2()
+    {
+        //Given
+        Problem6 problem6 = new Problem6();
+        Integer hour = 1;
+        String expected  = "Zero One Hundred ";
+
+        //When
+        String actual = problem6.getMilitaryHour(hour);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 
 
 

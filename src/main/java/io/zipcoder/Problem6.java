@@ -65,6 +65,19 @@ public class Problem6 {
         return minuteOnly;
     }
 
+    public String getMilitaryHour(Integer hour)
+    {
+        militaryHour = hoursArray[hour];
+        return militaryHour;
+    }
+
+//    public String getMilitaryMinute()
+//    {
+//
+//    }
+
+
+
 
 
 
