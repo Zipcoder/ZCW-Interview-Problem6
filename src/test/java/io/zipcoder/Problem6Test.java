@@ -46,4 +46,20 @@ public class Problem6Test {
         String actual = testProblem6.militaryConverter(time);
         Assert.assertEquals(militaryTime, actual);
     }
+    @Test
+    public void militaryTimeTest5(){
+        String time = "10:22am";
+        String militaryTime = "Ten Hundred and Twenty Two Hours";
+        Problem6 testProblem6 = new Problem6();
+        String actual = testProblem6.militaryConverter(time);
+        Assert.assertEquals(militaryTime, actual);
+    }
+    @Test
+    public void militaryTimeTest6(){
+        String time = "12:22am";
+        String militaryTime = "Zero Hundred and Twenty Two Hours";
+        Problem6 testProblem6 = new Problem6();
+        String actual = testProblem6.militaryConverter(time);
+        Assert.assertEquals(militaryTime, actual);
+    }
 }

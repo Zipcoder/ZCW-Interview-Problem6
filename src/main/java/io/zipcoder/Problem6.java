@@ -12,6 +12,9 @@ public class Problem6 {
 
     public String militaryConverter(String time) {
         Integer[] fullClock = splitHourAndMinutes(time);
+        if(militaryPhrasing(fullClock).charAt(0) == militaryPhrasing(fullClock).charAt(5)){
+            return militaryPhrasing(fullClock).substring(5);
+        }
         return militaryPhrasing(fullClock);
     }
 
@@ -26,7 +29,7 @@ public class Problem6 {
             }
         } else {
             if (amOrPm.equals("am")) {
-                hours -= 12;
+                hours -= hours;
             }
         }
         int minutes = Integer.parseInt(clockGroup[1].substring(0, 2));
@@ -63,7 +66,7 @@ public class Problem6 {
                 stringBuilder.append(militaryNum[minutes] + " ");
             } else {
                 int tenBase = minutes / 10;
-                int oneBase = minutes - tenBase * 10;
+                int oneBase = minutes % 10;
                 stringBuilder.append(militaryNum[18 + tenBase] + " ");
 
                 if (oneBase > 0) {
