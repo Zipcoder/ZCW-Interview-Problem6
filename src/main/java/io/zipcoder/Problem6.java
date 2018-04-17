@@ -37,10 +37,11 @@ public class Problem6 {
         String[] inputTimeArray = inputTime.split(":");
         int[] convertedToInt = stringToIntConverter(inputTimeArray);
         if(input.contains("am")){
-            outPut+=amTimeFormat(convertedToInt[0],convertedToInt[1],myMap);
+            outPut+=amTimeFormat(convertedToInt[0],myMap);
         }else{
-            outPut+=pmTimeFormat(convertedToInt[0],convertedToInt[1],myMap);
+            outPut+=pmTimeFormat(convertedToInt[0],myMap);
         }
+        outPut+=minuteFormat(convertedToInt[1]);
 
         return outPut;
     }
@@ -54,48 +55,36 @@ public class Problem6 {
         return intArray;
     }
 
-    public String pmTimeFormat(int inputHour,int inputMinutes, Map<Integer, String> inputMap) {
+    public String pmTimeFormat(int inputHour,Map<Integer, String> inputMap) {
         String outPut = "";
-        int divisionByTen = inputMinutes / 10;
-        int modulus = inputMinutes % 10;
         if (inputHour == 12) {
             outPut += inputMap.get(inputHour);
         } else {
             outPut += inputMap.get(12 + inputHour);
         }
-
-        if (inputMinutes < 24) {
-            outPut += " Hundred ";
-            if(inputMinutes<10){
-                outPut+="Zero ";
-            }
-            outPut += myMap.get(inputMinutes);
-            outPut += " Hours";
-        } else {
-            outPut += " Hundred and ";
-            outPut += myMap.get(10 * divisionByTen);
-            if (modulus != 0) {
-                outPut += " " + myMap.get(modulus);
-            }
-            outPut += " Hours";
-        }
-
         return outPut;
     }
 
-    public String amTimeFormat(int inputHour,int inputMinute, Map<Integer, String> inputMap) {
+    public String amTimeFormat(int inputHour,Map<Integer, String> inputMap) {
         String outPut = "";
-        int divisionByTen = inputMinute / 10;
-        int modulus = inputMinute% 10;
-        if (inputHour< 10) {
+        if (inputHour < 10) {
             outPut += "Zero ";
-            outPut+= inputMap.get(inputHour);
-        }else if(inputHour==12){
-            outPut+="Zero ";
-            outPut+=inputMap.get(0);
-        }else{
+            outPut += inputMap.get(inputHour);
+        } else if (inputHour == 12) {
+            outPut += "Zero ";
+            outPut += inputMap.get(0);
+        } else {
             outPut += inputMap.get(inputHour);
         }
+        return outPut;
+
+    }
+
+
+    public String minuteFormat(int inputMinute){
+        String outPut="";
+        int divisionByTen = inputMinute / 10;
+        int modulus = inputMinute % 10;
         if (inputMinute< 24) {
             outPut += " Hundred and ";
             if(inputMinute<10){
@@ -108,9 +97,9 @@ public class Problem6 {
             outPut += myMap.get(10 * (divisionByTen));
             outPut += " ";
             if (modulus != 0) {
-                outPut += myMap.get(modulus);
+                outPut += myMap.get(modulus) +" ";
             }
-            outPut += " Hours";
+            outPut += "Hours";
 
         }
         return outPut;

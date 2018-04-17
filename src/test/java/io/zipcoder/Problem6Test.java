@@ -12,8 +12,6 @@ public class Problem6Test {
         String expected = "Thirteen Hundred and Thirty Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
     @Test
@@ -23,8 +21,6 @@ public class Problem6Test {
         String expected = "Ninteen Hundred and Thirty Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
     @Test
@@ -34,8 +30,6 @@ public class Problem6Test {
         String expected = "Zero Two Hundred and Eleven Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
     @Test
@@ -45,8 +39,6 @@ public class Problem6Test {
         String expected = "Twenty Three Hundred and Fifty Five Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
 
@@ -57,8 +49,6 @@ public class Problem6Test {
         String expected = "Zero One Hundred and Twenty Two Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
 
@@ -69,8 +59,6 @@ public class Problem6Test {
         String expected = "Zero Zero Hundred and Zero Zero Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
 
@@ -78,11 +66,9 @@ public class Problem6Test {
     public void testMilitaryTimeConverter7(){
         Problem6 test = new Problem6();
         String input = "12:00pm";
-        String expected = "Twelve Hundred Zero Zero Hours";
+        String expected = "Twelve Hundred and Zero Zero Hours";
 
         String actual = test.militaryTimeConverter(input);
-
-        System.out.println(actual);
         Assert.assertEquals(expected,actual);
     }
 
