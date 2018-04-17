@@ -211,6 +211,69 @@ public class Problem6Test {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGetMilitaryMinute1()
+    {
+        //Given
+        Problem6 problem6 = new Problem6();
+        Integer minute = 00;
+        String expected = "";
+
+        //When
+        String actual = problem6.getMilitaryMinute(minute);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void testGetMilitaryMinute2()
+    {
+        //Given
+        Problem6 problem6 = new Problem6();
+        Integer minute = 01;
+        String expected = "and One";
+
+        //When
+        String actual = problem6.getMilitaryMinute(minute);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetMilitaryTime3()
+    {
+        //Given
+        Problem6 problem6 = new Problem6();
+        Integer minute = 02;
+        String expected = "and Two";
+
+        //When
+        String actual = problem6.getMilitaryMinute(minute);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetMilitaryTime4()
+    {
+        //Given
+        Problem6 problem6 = new Problem6();
+        Integer minute = 59;
+        String expected = "and Fifty Nine";
+
+        //When
+        String actual = problem6.getMilitaryMinute(minute);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+
 
 
 

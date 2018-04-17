@@ -5,26 +5,19 @@ public class Problem6 {
     private String militaryHour;
     private String militaryMinute;
 
-    private String[] hoursArray = {"Zero-zero", "Zero One Hundred ", "Zero Two Hundred ", "Zero Three Hundred ",
+    private String[] hoursArray = {"Zero Hundred ", "Zero One Hundred ", "Zero Two Hundred ", "Zero Three Hundred ",
                                    "Zero Four Hundred ", "Zero Five Hundred ", "Zero Six Hundred ", " Zero Seven Hundred ",
                                     "Zero Eight Hundred ", "Zero Nine Hundred ", "Ten Hundred ", "Eleven Hundred ",
                                     "Twelve Hundred ", "Thirteen Hundred ", "Fourteen Hundred ", "Fifteen Hundred ",
                                     "Sixteen Hundred ", "Seventeen Hundred ", "Eighteen Hundred ", "Nineteen Hundred ",
                                     "Twenty Hundred ", "Twenty One Hundred ", "Twenty Two Hundred ", "Twenty Three Hundred ",
                                     "Twenty Four Hundred "};
-    private String[] minutesArray = {"", "and One", "and Two", "and Three", "and Four", "and Five", "and Six", "and Seven",
-                                    "and Eight", "and Nine", "and Ten", "and Eleven", "and Twelve", "and Thirteen",
-                                    "and Fourteen", "and Fifteen", "and Sixteen", "and Seventeen", "and Eighteen",
-                                    "and Nineteen", "and Twenty", "and Twenty One", "and Twenty Two", "and Twenty Three",
-                                    "and Twenty Four", "and Twenty Five", "and Twenty Six", "and Twenty Seven",
-                                    "and Twenty Eight", "and Twenty Nine", "and Thirty", "and Thirty One",
-                                    "and Thirty One", "and Thirty Two", "and Thirty Three", "and Thirty Four",
-                                    "and Thirty Five", "and Thirty Six", "and Thirty Seven", "and Thirty Eight",
-                                    "and Thirty Nine", "and Fourty", "and Fourty One", "and Fourty Two", "and Fourty Three",
-                                    "and Fourty Four", "and Fourty Five", "and Fourty Six", "and Fourty Seven",
-                                    "and Fourty Eight", "and Fourty Nine", "and Fifty", "and Fifty One", "and Fifty Two",
-                                    "and Fifty Three", "and Fifty Four", "and Fifty Five", "and Fifty Six", "and Fifty Seven",
-                                    "and Fifty Eight", "and Fifty Nine", "zero-zero"};
+    private String[] minutesArray = {"", "and One", "and Two", "and Three", "and Four", "and Five", "and Six", "and Seven", "and Eight", "and Nine", "and Ten",
+                                    "and Eleven", "and Twelve", "and Thirteen", "and Fourteen", "and Fifteen", "and Sixteen", "and Seventeen", "and Eighteen", "and Nineteen", "and Twenty",
+                                    "and Twenty One", "and Twenty Two", "and Twenty Three", "and Twenty Four", "and Twenty Five", "and Twenty Six", "and Twenty Seven", "and Twenty Eight", "and Twenty Nine", "and Thirty",
+                                    "and Thirty One", "and Thirty Two", "and Thirty Three", "and Thirty Four", "and Thirty Five", "and Thirty Six", "and Thirty Seven", "and Thirty Eight","and Thirty Nine","and Fourty",
+                                    "and Fourty One", "and Fourty Two", "and Fourty Three", "and Fourty Four", "and Fourty Five", "and Fourty Six", "and Fourty Seven", "and Fourty Eight", "and Fourty Nine", "and Fifty",
+                                    "and Fifty One", "and Fifty Two", "and Fifty Three", "and Fifty Four", "and Fifty Five", "and Fifty Six", "and Fifty Seven", "and Fifty Eight", "and Fifty Nine"};
 
     public String[] splitTime(String timeInput)
     {
@@ -71,10 +64,14 @@ public class Problem6 {
         return militaryHour;
     }
 
-//    public String getMilitaryMinute()
-//    {
-//
-//    }
+    public String getMilitaryMinute(Integer minute)
+    {
+        militaryMinute = minutesArray[minute];
+        return militaryMinute;
+
+    }
+
+
 
 
 
@@ -109,18 +106,3 @@ public class Problem6 {
 
 
 
-//        this.hour = hour;
-//        this.amOrPm = amOrPm;
-
-
-//    public static String timeToString(String digitalTime){
-//
-//
-//
-//        return null;
-//    }
-
-//private static int hour;
-//private String minute
-//private final String timeColon = ":"
-//private static String amOrPm;
